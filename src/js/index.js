@@ -1,8 +1,20 @@
-// Global app controller
+import axios from 'axios'; // axios is a popular HTTP request library. install it from npm as --save. 
+                           //axios is better than fetch because it works on older browsers/automatically returns json(so dont need 2 steps as fetch)/and also better in error handling.
 
-import str from './models/Search';
-// import { add as a, multiply as m, ID } from './views/searchView';
-import * as searchView from './views/searchView';
+async function getResults(query) {
+    const key = '4060c2889a4fd3a70ca5c876c19abcf6';
+    try {
+        const res = await axios(`https://www.food2fork.com/api/search?key=${key}&q=${query}`);
+        const recipes = res.data.recipes;
+        console.log(recipes);
+    } catch (error) {
+        alert(error);
+    }
+}
+getResults('pizza');
 
-console.log(`Using imported functions! ${searchView.add(searchView.ID,2)} and ${searchView.multiply(3, 5)}, ${str}`);
+
+// https://www.food2fork.com/api/search
+// 4060c2889a4fd3a70ca5c876c19abcf6
+// https://www.food2fork.com/api/search?key=4060c2889a4fd3a70ca5c876c19abcf6&q=pizza
 
