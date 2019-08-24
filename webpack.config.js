@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // export configuration object, so that webpack can take the object and work with it.
 module.exports = {
-    entry: './src/js/index.js', // where webpack will start the bundling.
+    entry: ['babel-polyfill','./src/js/index.js'], // where webpack will start the bundling. we also add the polyfill that we installed.
     output: { // which will tell webpack where to save bundle file.
         path: path.resolve(__dirname, 'dist'), // needs to be absolute path. join __dirname: current absolute path, with, dist/js: path where the bundle to be in, using a method.
         filename: 'js/bundle.js'
@@ -16,7 +16,21 @@ module.exports = {
             filename: 'index.html',
             template: './src/index.html' // our starting html file. we can also create a new html from scratch automatically without providing any template, but not covering it here.
         })
-    ]
+    ],
+    module: { // loaders in webpack allow us to import, or to load, all kinds of different files, and also to process them.(converting sass->css, ES6->ES5)
+              // we need the babel loader, because babel is the one that will convert the ES6->ES5.
+        rules: [
+            {
+                test: /\.js$/, // regular expression. look for all the files and test if they end with JS.
+                exclude: /node_modules/, // we dont want to apply it to this whole thing.
+                use: { // all the JS files will use the babel loader.
+                    loader: 'babel-loader'
+                }
+            }
+        ]
+    }
 };
+
+
 
 
