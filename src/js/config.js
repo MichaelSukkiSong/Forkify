@@ -1,4 +1,7 @@
-export const key = 'e69e30c3e41b0c6a474d0457e0e22940';
+export const key = '4060c2889a4fd3a70ca5c876c19abcf6';
 
 
+// https://www.food2fork.com/api/search
+// 4060c2889a4fd3a70ca5c876c19abcf6
+// https://www.food2fork.com/api/search?key=4060c2889a4fd3a70ca5c876c19abcf6&q=pizza
 
