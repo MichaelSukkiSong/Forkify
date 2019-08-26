@@ -1,4 +1,4 @@
-import axios from 'axios'; // axios is a popular HTTP request library. install it from npm as --save. 
+import axios from 'axios'; // axios is a popular HTTP request library. install it from npm as --save.
                            //axios is better than fetch because it works on older browsers/automatically returns json(so dont need 2 steps as fetch)/and also better in error handling.
 
 export default class Search {
@@ -7,11 +7,11 @@ export default class Search {
     }
 
     async getResults() { // async functions return a promise.
-        const key = '774d0f062c346ca9b6d279c101d0ed57';
+        const key = 'e6b36e6355d89c4f84f950f2f5e063c0';
         try {
             const res = await axios(`https://www.food2fork.com/api/search?key=${key}&q=${this.query}`);
             this.result = res.data.recipes;
-            // console.log(this.result);
+            //console.log(this.result);
         } catch (error) {
             alert(error);
         }
