@@ -20,8 +20,8 @@ module.exports = {
     ],
     module: { // loaders in webpack allow us to import, or to load, all kinds of different files, and also to process them.(converting sass->css, ES6->ES5)
               // we need the babel loader, because babel is the one that will convert the ES6->ES5.
-        rules: [
-            {
+        rules: [ // rules, receives an array of all the loaders that we want to use.
+            { // for each loader we need an object.
                 test: /\.js$/, // regular expression. look for all the files and test if they end with JS.
                 exclude: /node_modules/, // we dont want to apply it to this whole thing.
                 use: { // all the JS files will use the babel loader.
