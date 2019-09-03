@@ -12,7 +12,7 @@ module.exports = {
     devServer: {
         contentBase: './dist' // specify the folder from which webpack should serve our files.
     },
-    plugins: [ // plugins allow us to do complex processing of our input file.
+    plugins: [ // plugins allow us to do complex processing of our input file. in this case of our index.html file.
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: './src/index.html' // our starting html file. we can also create a new html from scratch automatically without providing any template, but not covering it here.
