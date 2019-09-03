@@ -1,4 +1,4 @@
-const path = require('path'); // just to include a built in node module called path, and then put it in the path variable.
+const path = require('path'); // just to include a built in node module called path, and then put it in the path variable. used to have access to absolute path.
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // export configuration object, so that webpack can take the object and work with it.
@@ -8,6 +8,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'), // needs to be absolute path. join __dirname: current absolute path, with, dist/js: path where the bundle to be in, using a method.
         filename: 'js/bundle.js'
     },
+    //mode: 'development'   개발/생산 모드를 바꾸기 귀찮으므로 npm script로 만든다. this option can be removed to package.json
     devServer: {
         contentBase: './dist' // specify the folder from which webpack should serve our files.
     },
