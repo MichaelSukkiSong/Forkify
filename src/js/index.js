@@ -15,6 +15,7 @@ import { elements, renderLoader, clearLoader } from './views/base';
  * - Shopping list object
  * - Liked recipes
 */
+// all of the data in one given moment is the state.
 const state = {};
 
 /**
