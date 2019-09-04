@@ -110,7 +110,7 @@ const controlRecipe = async () => {
 
 // window.addEventListener('hashchange', controlRecipe);
 // window.addEventListener('load', controlRecipe);
-
+// these two lines can be combined by the below code.
 ['hashchange', 'load'].forEach(event => window.addEventListener(event, controlRecipe));
 
 
