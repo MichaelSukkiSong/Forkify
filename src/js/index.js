@@ -142,6 +142,9 @@ elements.deleteListBtn.addEventListener("click", e => {
   // Delete from state
   state.list.deleteAll();
 
+  // Delete from localStorage
+  localStorage.removeItem("items");
+
   // Delete from UI
   listView.deleteAll();
 });
@@ -185,15 +188,18 @@ const controlLike = () => {
 // Restore liked recipes on page load
 window.addEventListener("load", () => {
   state.likes = new Likes();
+  state.list = new List();
 
   // Restore likes
   state.likes.readStorage();
+  state.list.readStorage();
 
   // Toggle like menu button
   likesView.toggleLikeMenu(state.likes.getNumLikes());
 
   // Render the existing likes
   state.likes.likes.forEach(like => likesView.renderLike(like));
+  state.list.items.forEach(item => listView.renderItem(item));
 });
 
 // Handling recipe button clicks
